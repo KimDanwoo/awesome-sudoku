@@ -1,7 +1,7 @@
 import { SUDOKU_CELL_COUNT } from "@entities/board/model/constants";
 import { CageInfo } from "@entities/board/model/types";
 import { GAME_MODE } from "@entities/game/model/constants";
-import { useSudokuStore } from "@features/game-controls/model/stores";
+import { useSudokuStore } from "@features/game-controls/model/state";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 /**

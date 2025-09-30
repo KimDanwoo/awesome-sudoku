@@ -1,5 +1,5 @@
 import { signInWithGoogle, signOut } from "@features/auth/model/services/authService";
-import { useAuthStore } from "@features/auth/model/stores/authStore";
+import { useAuthStore } from "@features/auth/model/state";
 import { useCallback } from "react";
 
 export function useAuth() {

@@ -1,7 +1,7 @@
 "use client";
 
 import { subscribeToAuthChanges } from "@features/auth/model/services/authService";
-import { useAuthStore } from "@features/auth/model/stores/authStore";
+import { useAuthStore } from "@features/auth/model/state";
 import { AuthGuard } from "@features/auth/ui";
 import { ReactNode, useEffect } from "react";
 

@@ -21,18 +21,23 @@ export function getCellBorderStyles(row: number, col: number) {
  * @returns 셀 하이라이트 스타일
  */
 export function getCellHighlightStyles(highlight: CellHighlight, isConflict: boolean) {
+  let bgColor = "bg-white";
+
+  if (highlight.selected) {
+    bgColor = "bg-blue-100";
+  } else if (highlight.sameValue) {
+    bgColor = "bg-blue-300";
+  } else if (highlight.related) {
+    bgColor = "bg-blue-50";
+  }
+
+  const textColor = isConflict ? "text-red-600" : "text-slate-700";
+  const borderColor = highlight.selected ? "outline-1 outline-blue-600" : "border-slate-200";
+
   return {
-    bgColor: cn(
-      "bg-white", // 기본 배경색
-      highlight.selected && "bg-blue-200",
-      highlight.sameValue && "bg-blue-300",
-      highlight.related && "bg-blue-50",
-    ),
-    textColor: cn(
-      "text-slate-700", // 기본 텍스트 색상
-      isConflict && "text-red-600",
-    ),
-    borderColor: "border-slate-200",
+    bgColor,
+    textColor,
+    borderColor,
   };
 }
 
@@ -50,11 +55,10 @@ export function buildCellClassName(
 ) {
   return cn(
     "relative",
-    "min-w-8 min-h-8 w-8 h-8",
-    "sm:w-10 sm:h-10",
+    "min-w-10 min-h-10",
+    "w-10 h-10",
     "md:w-12 md:h-12",
     "lg:w-14 lg:h-14",
-    "border",
     "text-center align-middle",
     "cursor-pointer",
     "transition-colors duration-100",
@@ -63,9 +67,10 @@ export function buildCellClassName(
     "touch-manipulation",
     "-webkit-tap-highlight-color: transparent",
     "active:outline-none",
+    "border",
+    borderColor,
     bgColor,
     textColor,
-    borderColor,
     isInitial ? "font-bold" : "font-normal",
     isRightBlockBorder && "border-r-2 border-r-slate-800",
     isBottomBlockBorder && "border-b-2 border-b-slate-800",

@@ -32,9 +32,9 @@ importers:
       tailwind-merge:
         specifier: ^3.3.1
         version: 3.3.1
-      zustand:
-        specifier: ^4.5.7
-        version: 4.5.7(@types/react@19.1.5)(react@19.1.0)
+      jotai:
+        specifier: file:src/shared/state/jotai
+        version: link:src/shared/state/jotai
     devDependencies:
       '@eslint/eslintrc':
         specifier: ^3
@@ -3561,20 +3561,6 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
 
-  zustand@4.5.7:
-    resolution: {integrity: sha512-CHOUy7mu3lbD6o6LJLfllpjkzhHXSBlX8B9+qPddUsIfeF5S/UZ5q0kmCsnRqT1UHFQZchNFDDzMbQsuesHWlw==}
-    engines: {node: '>=12.7.0'}
-    peerDependencies:
-      '@types/react': '>=16.8'
-      immer: '>=9.0.6'
-      react: '>=16.8'
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      immer:
-        optional: true
-      react:
-        optional: true
 
 snapshots:
 
@@ -7381,9 +7367,3 @@ snapshots:
 
   yocto-queue@0.1.0: {}
 
-  zustand@4.5.7(@types/react@19.1.5)(react@19.1.0):
-    dependencies:
-      use-sync-external-store: 1.5.0(react@19.1.0)
-    optionalDependencies:
-      '@types/react': 19.1.5
-      react: 19.1.0

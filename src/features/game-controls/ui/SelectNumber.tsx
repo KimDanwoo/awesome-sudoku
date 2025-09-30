@@ -1,7 +1,7 @@
 "use client";
 
 import { KEY_NUMBER } from "@entities/board/model/constants";
-import { useSudokuStore } from "@features/game-controls/model/stores";
+import { useSudokuStore } from "@features/game-controls/model/state";
 import { NumberButton } from "@shared/ui";
 import { FC, useCallback, useMemo } from "react";
 

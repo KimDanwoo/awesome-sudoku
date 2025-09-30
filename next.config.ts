@@ -1,4 +1,5 @@
 import type { NextConfig } from "next";
+import path from "path";
 
 const nextConfig: NextConfig = {
   images: {
@@ -15,6 +16,13 @@ const nextConfig: NextConfig = {
         pathname: "/**",
       },
     ],
+  },
+  webpack: (config) => {
+    config.resolve = config.resolve ?? {};
+    config.resolve.alias = config.resolve.alias ?? {};
+    config.resolve.alias["jotai"] = path.resolve(__dirname, "src/shared/state/jotai");
+    config.resolve.alias["jotai/utils"] = path.resolve(__dirname, "src/shared/state/jotai/utils");
+    return config;
   },
 };
 

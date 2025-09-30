@@ -1,5 +1,5 @@
 import { formatTime } from "@features/game-board/model/utils";
-import { useSudokuStore } from "@features/game-controls/model/stores";
+import { useSudokuStore } from "@features/game-controls/model/state";
 import { useCallback, useEffect } from "react";
 import { AiOutlinePause } from "react-icons/ai";
 import { VscPlay } from "react-icons/vsc";

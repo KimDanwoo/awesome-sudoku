@@ -1,4 +1,4 @@
-import { useSudokuStore } from "@features/game-controls/model/stores";
+import { useSudokuStore } from "@features/game-controls/model/state";
 import { IconButton } from "@shared/ui";
 import { GoPencil } from "react-icons/go";
 

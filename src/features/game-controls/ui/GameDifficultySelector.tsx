@@ -1,6 +1,6 @@
 import { GAME_LEVEL, GAME_LEVEL_LABELS } from "@entities/game/model/constants";
 import { Difficulty } from "@entities/game/model/types";
-import { useSudokuStore } from "@features/game-controls/model/stores";
+import { useSudokuStore } from "@features/game-controls/model/state";
 
 const options = [
   { label: GAME_LEVEL_LABELS[GAME_LEVEL.EASY], value: GAME_LEVEL.EASY },

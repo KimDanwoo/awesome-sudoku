@@ -1,0 +1,8 @@
+{
+  "name": "jotai",
+  "version": "0.0.0",
+  "type": "module",
+  "main": "index.ts",
+  "module": "index.ts",
+  "types": "index.ts"
+}

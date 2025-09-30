@@ -1,5 +1,5 @@
 import { CompletedBoard } from "@features/game-board/ui";
-import { useSudokuStore } from "@features/game-controls/model/stores";
+import { useSudokuStore } from "@features/game-controls/model/state";
 import { GameDifficultySelector } from "@features/game-controls/ui";
 import { FC } from "react";
 

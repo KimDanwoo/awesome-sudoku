@@ -1,4 +1,4 @@
-import { useSudokuStore } from "@features/game-controls/model/stores";
+import { useSudokuStore } from "@features/game-controls/model/state";
 import { cn } from "@shared/model/utils";
 
 export const CompletedBoard = () => {

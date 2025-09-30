@@ -1,5 +1,5 @@
 import { GAME_MODE } from "@entities/game/model/constants";
-import { useSudokuStore } from "@features/game-controls/model/stores";
+import { useSudokuStore } from "@features/game-controls/model/state";
 import { cn } from "@shared/model/utils";
 import React from "react";
 

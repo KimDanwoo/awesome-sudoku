@@ -3,7 +3,7 @@
 import { GAME_MODE } from "@entities/game/model/constants";
 import { SudokuCell } from "@features/game-board/ui";
 import { useInitializeGame, useKeyboardControls } from "@features/game-controls/model/hooks";
-import { useSudokuStore } from "@features/game-controls/model/stores";
+import { useSudokuStore } from "@features/game-controls/model/state";
 import { KillerCage } from "@features/killer-board/ui";
 
 export const SudokuBoard: React.FC = () => {

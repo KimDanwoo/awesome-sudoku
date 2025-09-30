@@ -1,6 +1,6 @@
 import { buildCellClassName, getCellBorderStyles, getCellHighlightStyles } from "@entities/cell/model/cellStyle";
 import { CellProps } from "@entities/cell/model/types";
-import { useSudokuStore } from "@features/game-controls/model/stores";
+import { useSudokuStore } from "@features/game-controls/model/state";
 import { KeyboardEvent, useCallback, useMemo } from "react";
 
 const EMPTY_HIGHLIGHT = { selected: false, related: false, sameValue: false } as const;
@@ -12,6 +12,7 @@ export const useCell = ({ cell, row, col, onSelect }: CellProps) => {
 
   const cellKey = `${row}-${col}`;
   const highlight = useSudokuStore((state) => state.highlightedCells[cellKey] ?? EMPTY_HIGHLIGHT);
+  const handleKeyInput = useSudokuStore((state) => state.handleKeyInput);
 
   // 메모화된 스타일 계산
   const borderStyles = useMemo(() => getCellBorderStyles(row, col), [row, col]);
@@ -67,8 +68,7 @@ export const useCell = ({ cell, row, col, onSelect }: CellProps) => {
         onSelect(row, col);
         // 키 입력을 스토어로 전달 (선택 후 입력)
         setTimeout(() => {
-          const store = useSudokuStore.getState();
-          store.handleKeyInput(keyPressed);
+          handleKeyInput(keyPressed);
         }, 0);
       }
 
@@ -77,12 +77,11 @@ export const useCell = ({ cell, row, col, onSelect }: CellProps) => {
         event.preventDefault();
         onSelect(row, col);
         setTimeout(() => {
-          const store = useSudokuStore.getState();
-          store.handleKeyInput(keyPressed);
+          handleKeyInput(keyPressed);
         }, 0);
       }
     },
-    [timerActive, onSelect, row, col],
+    [timerActive, onSelect, row, col, handleKeyInput],
   );
 
   // 포커스 가능한 요소로 만들기 위한 tabIndex 설정
