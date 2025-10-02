@@ -1,10 +1,10 @@
-import { useSudokuStore } from "@features/game-controls/model/stores";
+import { useSudokuStore, useTimerStore } from "@features/game-controls/model/stores";
 import { IconButton } from "@shared/ui";
 import { GoPencil } from "react-icons/go";
 
 export const ToggleNote = () => {
   const isNoteMode = useSudokuStore((state) => state.isNoteMode);
-  const timerActive = useSudokuStore((state) => state.timerActive);
+  const timerActive = useTimerStore((state) => state.timerActive);
   const toggleNoteMode = useSudokuStore((state) => state.toggleNoteMode);
 
   return (

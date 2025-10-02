@@ -1,5 +1,6 @@
 import { NUMBER_COUNTS } from "@entities/board/model/constants";
 import { SudokuStoreActionCreator } from "@features/game-controls/model/stores/types";
+import { useTimerStore } from "@features/game-controls/model/stores/timerStore";
 import { buildGameResultState, resolveBoardState } from "@features/game-controls/model/stores/helpers/gameResult";
 
 export const createStatusActions: SudokuStoreActionCreator<
@@ -25,5 +26,9 @@ export const createStatusActions: SudokuStoreActionCreator<
     const { result } = resolveBoardState(board, solution, gameMode, cages);
 
     set(buildGameResultState(result));
+
+    if (result.completed) {
+      useTimerStore.getState().stopTimer();
+    }
   },
 });

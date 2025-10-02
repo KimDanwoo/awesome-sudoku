@@ -6,7 +6,6 @@ export const buildGameResultState = (result: GameCompletionResult) => ({
   board: result.board,
   isCompleted: result.completed,
   isSuccess: result.success,
-  timerActive: !result.completed,
 });
 
 export const resolveBoardState = (

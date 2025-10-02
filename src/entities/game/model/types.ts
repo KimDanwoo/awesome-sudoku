@@ -19,14 +19,17 @@ export interface SudokuState {
   selectedCell: Position | null;
   isCompleted: boolean;
   isSuccess: boolean;
-  currentTime: number;
-  timerActive: boolean;
   difficulty: Difficulty;
   highlightedCells: Record<string, CellHighlight>;
   numberCounts: Record<number, number>;
   hintsRemaining: number;
   gameMode: GameMode;
   cages: KillerCage[];
+}
+
+export interface SudokuTimerState {
+  currentTime: number;
+  timerActive: boolean;
 }
 
 export interface GameCompletionResult {

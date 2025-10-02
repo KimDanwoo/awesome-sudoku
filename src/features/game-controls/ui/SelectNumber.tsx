@@ -1,14 +1,14 @@
 "use client";
 
 import { KEY_NUMBER } from "@entities/board/model/constants";
-import { useSudokuStore } from "@features/game-controls/model/stores";
+import { useSudokuStore, useTimerStore } from "@features/game-controls/model/stores";
 import { NumberButton } from "@shared/ui";
 import { FC, useCallback, useMemo } from "react";
 
 export const SelectNumber: FC = () => {
   const isNoteMode = useSudokuStore((state) => state.isNoteMode);
   const numberCounts = useSudokuStore((state) => state.numberCounts);
-  const timerActive = useSudokuStore((state) => state.timerActive);
+  const timerActive = useTimerStore((state) => state.timerActive);
 
   const fillCell = useSudokuStore((state) => state.fillCell);
   const toggleNote = useSudokuStore((state) => state.toggleNote);

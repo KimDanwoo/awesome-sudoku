@@ -1,11 +1,11 @@
-import { useSudokuStore } from "@features/game-controls/model/stores";
+import { useSudokuStore, useTimerStore } from "@features/game-controls/model/stores";
 import { FC } from "react";
 import { IoPlayCircleOutline } from "react-icons/io5";
 
 export const PauseGameOverlay: FC = () => {
-  const timerActive = useSudokuStore((state) => state.timerActive);
+  const timerActive = useTimerStore((state) => state.timerActive);
   const isCompleted = useSudokuStore((state) => state.isCompleted);
-  const toggleTimer = useSudokuStore((state) => state.toggleTimer);
+  const toggleTimer = useTimerStore((state) => state.toggleTimer);
 
   if (timerActive || isCompleted) return null;
 

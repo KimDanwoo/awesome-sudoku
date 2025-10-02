@@ -1,4 +1,4 @@
-import { SudokuState, Difficulty, GameMode } from "@entities/game/model/types";
+import { SudokuState, Difficulty, GameMode, SudokuTimerState } from "@entities/game/model/types";
 import { StoreApi } from "zustand";
 
 export interface SudokuActions {
@@ -11,8 +11,6 @@ export interface SudokuActions {
   getHint: () => void;
   checkSolution: () => void;
   restartGame: () => void;
-  incrementTimer: () => void;
-  toggleTimer: (isActive?: boolean) => void;
   updateHighlights: (row: number, col: number) => void;
   toggleNoteMode: () => void;
   countBoardNumbers: () => void;
@@ -29,3 +27,12 @@ export type SudokuStoreActionCreator<Keys extends keyof SudokuActions> = (
   set: SudokuStoreSet,
   get: SudokuStoreGet,
 ) => Pick<SudokuActions, Keys>;
+
+export interface SudokuTimerActions {
+  incrementTimer: () => void;
+  toggleTimer: (isActive?: boolean) => void;
+  resetTimer: (isActive?: boolean) => void;
+  stopTimer: () => void;
+}
+
+export type SudokuTimerStore = SudokuTimerState & SudokuTimerActions;

@@ -8,6 +8,7 @@ import {
 } from "@features/game-board/model/utils";
 import { initialSudokuState } from "@features/game-controls/model/stores/initialState";
 import { SudokuStoreActionCreator } from "@features/game-controls/model/stores/types";
+import { useTimerStore } from "@features/game-controls/model/stores/timerStore";
 
 export const createGameLifecycleActions: SudokuStoreActionCreator<
   "initializeGame" | "switchGameMode" | "restartGame"
@@ -36,7 +37,7 @@ export const createGameLifecycleActions: SudokuStoreActionCreator<
       cages,
     });
 
-    get().toggleTimer(true);
+    useTimerStore.getState().resetTimer(true);
     get().countBoardNumbers();
   },
 

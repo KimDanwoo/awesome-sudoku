@@ -1,4 +1,5 @@
 import { SudokuStoreActionCreator } from "@features/game-controls/model/stores/types";
+import { useTimerStore } from "@features/game-controls/model/stores/timerStore";
 import { buildGameResultState, resolveBoardState } from "@features/game-controls/model/stores/helpers/gameResult";
 import { findEmptyCells, updateCellValue } from "@features/game-controls/model/utils";
 
@@ -30,6 +31,10 @@ export const createHintActions: SudokuStoreActionCreator<"getHint"> = (set, get)
       hintsRemaining: hintsRemaining - 1,
       selectedCell: { row, col },
     });
+
+    if (result.completed) {
+      useTimerStore.getState().stopTimer();
+    }
 
     get().countBoardNumbers();
     get().updateHighlights(row, col);

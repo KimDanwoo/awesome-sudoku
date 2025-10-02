@@ -8,6 +8,7 @@ import {
   updateCellValue,
 } from "@features/game-controls/model/utils";
 import { buildGameResultState, resolveBoardState } from "@features/game-controls/model/stores/helpers/gameResult";
+import { useTimerStore } from "@features/game-controls/model/stores/timerStore";
 
 export const createCellValueActions: SudokuStoreActionCreator<
   "fillCell" | "toggleNote" | "toggleNoteMode" | "resetUserInputs"
@@ -23,9 +24,12 @@ export const createCellValueActions: SudokuStoreActionCreator<
 
     set(buildGameResultState(result));
 
+    if (result.completed) {
+      useTimerStore.getState().stopTimer();
+    }
+
     if (result.success) {
       get().deselectCell();
-      get().toggleTimer(false);
     }
 
     get().countBoardNumbers();
@@ -67,12 +71,11 @@ export const createCellValueActions: SudokuStoreActionCreator<
       board: newBoard,
       highlightedCells: emptyHighlights,
       hintsRemaining: HINTS_REMAINING,
-      currentTime: 0,
       isCompleted: false,
       isSuccess: false,
     });
 
-    get().toggleTimer(true);
+    useTimerStore.getState().resetTimer(true);
     get().countBoardNumbers();
   },
 });

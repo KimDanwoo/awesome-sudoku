@@ -1,14 +1,14 @@
 import { formatTime } from "@features/game-board/model/utils";
-import { useSudokuStore } from "@features/game-controls/model/stores";
+import { useSudokuStore, useTimerStore } from "@features/game-controls/model/stores";
 import { useCallback, useEffect } from "react";
 import { AiOutlinePause } from "react-icons/ai";
 import { VscPlay } from "react-icons/vsc";
 
 export const TimerControl = () => {
-  const currentTime = useSudokuStore((state) => state.currentTime);
-  const timerActive = useSudokuStore((state) => state.timerActive);
-  const incrementTimer = useSudokuStore((state) => state.incrementTimer);
-  const toggleTimer = useSudokuStore((state) => state.toggleTimer);
+  const currentTime = useTimerStore((state) => state.currentTime);
+  const timerActive = useTimerStore((state) => state.timerActive);
+  const incrementTimer = useTimerStore((state) => state.incrementTimer);
+  const toggleTimer = useTimerStore((state) => state.toggleTimer);
   const isCompleted = useSudokuStore((state) => state.isCompleted);
 
   // 타이머 로직
