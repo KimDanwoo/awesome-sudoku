@@ -1,5 +1,7 @@
 # Awesome Sudoku
 
+> 해당 프로젝트는 https://github.com/KimDanwoo/labs로 이관되었습니다.
+
 > 9x9 칸 안에서 벌어지는 두뇌 싸움.
 
 ![Next.js](https://img.shields.io/badge/Next.js-16-000000?logo=nextdotjs&logoColor=white)
